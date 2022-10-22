@@ -37,8 +37,7 @@ jobs:
         run: |
           echo "Copy files to EC2 here"
 
-    
-  continuous-integration:
+  continuous-deployment:
     runs-on: ubuntu-latest
     needs: [continuous-integration]
     steps:
