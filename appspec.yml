@@ -1,12 +1,12 @@
 version: 0.0
 os: linux
 files:
-  - source: .
-    destination: /home/ec2-user/app
+  - source: ./swebapp
+    destination: /home/ec2-user/deploy
 hooks:
-  AfterInstall:
-    - location: scripts/install_deps
-      timeout: 300
+  # AfterInstall:
+  #   - location: scripts/install_deps
+  #     timeout: 300
   ApplicationStart:
-    - location: scripts/start_server
+    - location: start_server
       timeout: 300
