@@ -1,4 +1,5 @@
 #!/ust/bin/env bash
 
+cd /home/ec2-user/deploy
 echo "Run server"
 go run .
