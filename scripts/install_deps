@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 cd /home/ec2-user/deploy
 go mod tidy
