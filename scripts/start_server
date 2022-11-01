@@ -1,7 +1,8 @@
 #!/bin/sh
 
 BIN_PATH=/home/ec2-user/swebapp/swebapp
-LOG_PATH=/home/ec2-user/swebapp/swebapp.log
+TIME=`date -u`
+LOG_PATH=/home/ec2-user/swebapp/swebapp-$TIME.log
 
 # pm2 delete simple-app || : && pm2 start --name swebapp $BIN_PATH
 echo "Building Application" >> $LOG_PATH
