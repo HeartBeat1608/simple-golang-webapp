@@ -26,6 +26,10 @@ jobs:
   continuous-deployment:
     runs-on: ubuntu-latest
     needs: [continuous-integration]
+    env:
+      AWS_HOST: ec2-18-181-222-25.ap-northeast-1.compute.amazonaws.com
+      AWS_USERNAME: ec2-user
+      APP_TARGET: /home/ec2-user/app
     steps:
       - uses: actions/checkout@v3
 
@@ -39,16 +43,20 @@ jobs:
 
       - name: Copy Binary to EC2
         uses: appleboy/scp-action@master
-        env:
-          AWS_HOST: ec2-18-181-222-25.ap-northeast-1.compute.amazonaws.com
-          AWS_USERNAME: ec2-user
-          APP_TARGET: /home/ec2-user/app
         with:
           host: ${{ env.AWS_HOST }}
           username: ${{ env.AWS_USERNAME }}
           key: ${{ secrets.AWS_SSH_KEY }}
-          source: "./swebapp"
+          source: "swebapp, ecosystem.config.js"
           target: ${{ env.APP_TARGET }}
+
+      - name: Restart remote process
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.AWS_HOST }}
+          username: ${{ env.AWS_USERNAME }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: pm2 startOrRestart ecosystem.config.js
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
