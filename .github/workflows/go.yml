@@ -45,8 +45,8 @@ jobs:
       - name: Copy Binary to EC2
         uses: appleboy/scp-action@master
         with:
-          host: $AWS_HOST
-          username: $AWS_USERNAME
+          host: ${{ AWS_HOST }}
+          username: ${{ AWS_USERNAME }}
           key: ${{ secrets.AWS_SSH_KEY }}
           source: "./swebapp"
           target: /home/ec2-user/app
