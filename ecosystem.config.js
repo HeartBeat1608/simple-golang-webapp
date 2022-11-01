@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "swebapp",
       script: "./swebapp",
-      env: {
+      env_deployment: {
         PORT: 6500,
       },
     },

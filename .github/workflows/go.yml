@@ -58,7 +58,7 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
             cd ${{ env.APP_TARGET }}
-            pm2 startOrRestart ecosystem.config.js
+            pm2 startOrRestart ecosystem.config.js --env deployment
             pm2 save
 
       # - name: Configure AWS credentials
