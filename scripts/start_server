@@ -2,4 +2,4 @@
 
 cd /home/ec2-user/deploy
 echo "Run server"
-pm2 start --name simple-app ./swebapp
+pm2 restart simple-app
