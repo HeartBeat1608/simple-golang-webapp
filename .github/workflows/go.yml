@@ -41,6 +41,11 @@ jobs:
       - name: Build Application
         run: go build -v -o swebapp .
 
+      - name: Show Build Directory
+        run: |
+          pwd
+          ls -lah
+
       - name: Copy Binary to EC2
         uses: appleboy/scp-action@master
         with:
