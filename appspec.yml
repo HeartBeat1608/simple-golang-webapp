@@ -1,9 +1,9 @@
 version: 0.0
 os: linux
 files:
-  - source: scripts
-    destination: /home/ec2-user/swebapp/scripts
-  - source: swebapp
+  # - source: scripts
+  #   destination: /home/ec2-user/swebapp/scripts
+  - source: .
     destination: /home/ec2-user/swebapp/
 hooks:
   ApplicationStart:
