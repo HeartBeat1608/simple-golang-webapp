@@ -9,12 +9,19 @@ function BuildApp {
     cd /home/ec2-user/swebapp
     echo "Building Application" >> $LOG_PATH
     go mod tidy 
-    if [ -z $? ]; then
-      echo "Go Tidy Succeeded" >> $LOG_PATH
+    if test $? -ne 0; then
+        echo "go mod tidy failed" >> $LOG_PATH
+        exit $?
+    else
+        echo "go mod tidy done" >> $LOG_PATH
     fi
+
     go build -o swebapp .
-    if [ -z $? ]; then
-      echo "Go Build Succeeded" >> $LOG_PATH
+    if test $? -ne 0; then
+        echo "go build failed" >> $LOG_PATH
+        exit $?
+    else
+        echo "Go Build Succeeded" >> $LOG_PATH
     fi
 }
 
