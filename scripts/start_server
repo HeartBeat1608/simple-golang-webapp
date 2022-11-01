@@ -32,7 +32,12 @@ function runApp {
     pm2 save >> $LOG_PATH
 }
 
+function updateDeploymentSeq {
+  export DEPLOYMENT_SEQ=$(($DEPLOYMENT_SEQ + 1))
+}
+
 echo $BIN_PATH >> $LOG_PATH
 
 BuildApp
 runApp
+updateDeploymentSeq
