@@ -3,6 +3,9 @@ module.exports = {
     {
       name: "swebapp",
       script: "./swebapp",
+      env: {
+        PORT: 6500,
+      },
     },
   ],
 };

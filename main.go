@@ -25,10 +25,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	port := ":8000"
+	var port string
+	if port = os.Getenv("PORT"); port == "" {
+		port = "3200"
+	}
 	http.HandleFunc("/", handler)
 	fmt.Println("Listening on port ", port)
-	if err := http.ListenAndServe(port, nil); err != nil {
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil); err != nil {
 		fmt.Println(fmt.Errorf("server error: %v", err))
 	}
 }
