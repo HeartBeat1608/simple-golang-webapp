@@ -4,6 +4,7 @@ BIN_PATH=/home/ec2-user/swebapp/swebapp
 LOG_PATH=/home/ec2-user/swebapp/swebapp.log
 
 # pm2 delete simple-app || : && pm2 start --name swebapp $BIN_PATH
-echo "Running things" >> $LOG_PATH
+echo "Running scripts" >> $LOG_PATH
 pm2 stop swebapp >> $LOG_PATH
 pm2 start --name swebapp $BIN_PATH >> $LOG_PATH
+pm2 save >> $LOG_PATH
