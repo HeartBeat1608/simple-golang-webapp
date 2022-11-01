@@ -56,7 +56,9 @@ jobs:
           host: ${{ env.AWS_HOST }}
           username: ${{ env.AWS_USERNAME }}
           key: ${{ secrets.AWS_SSH_KEY }}
-          script: pm2 startOrRestart ecosystem.config.js
+          script: |
+            cd ${{ env.APP_TARGET }}
+            pm2 startOrRestart ecosystem.config.js
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
