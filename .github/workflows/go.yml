@@ -54,6 +54,7 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           source: "swebapp, ecosystem.config.js"
           target: ${{ env.APP_TARGET }}
+          rm: true
 
       - name: Restart remote process
         uses: appleboy/ssh-action@master
