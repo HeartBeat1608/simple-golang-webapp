@@ -6,9 +6,6 @@ files:
   - source: swebapp
     destination: /home/ec2-user/swebapp/
 hooks:
-  AfterInstall:
-    - location: scripts/build_app
-      timeout: 120 # 2 minutes
   ApplicationStart:
     - location: scripts/start_server
       timeout: 120 # 2 minutes
