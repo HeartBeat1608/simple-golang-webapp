@@ -29,6 +29,6 @@ func main() {
 	http.HandleFunc("/", handler)
 	fmt.Println("Listening on port ", port)
 	if err := http.ListenAndServe(port, nil); err != nil {
-		fmt.Println(fmt.Errorf("Server Error: %v", err))
+		fmt.Println(fmt.Errorf("server error: %v", err))
 	}
 }
