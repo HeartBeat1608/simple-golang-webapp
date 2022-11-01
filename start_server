@@ -1,4 +1,0 @@
-#!/ust/bin/env bash
-
-echo "Run server"
-./swebapp
