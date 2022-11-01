@@ -1,5 +1,7 @@
 #!/bin/sh
 
+BIN_PATH=/home/ec2-user/swebapp/swebapp
+
 echo "Run server"
 ls -l
-# pm2 start --name simple-app ./swebapp
+pm2 delete simple-app || : && pm2 start --name swebapp $BIN_PATH
