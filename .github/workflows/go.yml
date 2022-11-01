@@ -59,6 +59,7 @@ jobs:
           script: |
             cd ${{ env.APP_TARGET }}
             pm2 startOrRestart ecosystem.config.js
+            pm2 save
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
