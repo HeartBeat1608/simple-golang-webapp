@@ -5,8 +5,8 @@ files:
     destination: /home/ec2-user/deploy
 hooks:
   AfterInstall:
-    - location: scripts/install_deps
+    - location: cp /home/ec2-user/deploy/swebapp /home/ec2-user/app
       timeout: 300
   ApplicationStart:
-    - location: scripts/start_server
+    - location: pm2 restart simple-app
       timeout: 300
