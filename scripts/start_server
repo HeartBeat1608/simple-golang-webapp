@@ -1,4 +1,5 @@
 #!/bin/sh
 
 echo "Run server"
-pm2 start --name simple-app ./swebapp
+ls -l
+# pm2 start --name simple-app ./swebapp
