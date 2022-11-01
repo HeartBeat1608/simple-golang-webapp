@@ -1,12 +1,12 @@
 version: 0.0
 os: linux
 files:
-  - source: .
-    destination: /home/ec2-user/deploy
+  - source: swebapp
+    destination: /home/ec2-user/swebapp
 hooks:
-  AfterInstall:
-    - location: cp /home/ec2-user/deploy/swebapp /home/ec2-user/app
-      timeout: 300
+  # AfterInstall:
+  #   - location: cp /home/ec2-user/deploy/swebapp /home/ec2-user/app
+  #     timeout: 300
   ApplicationStart:
     - location: pm2 restart simple-app
       timeout: 300
