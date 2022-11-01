@@ -42,12 +42,13 @@ jobs:
         env:
           AWS_HOST: ec2-18-181-222-25.ap-northeast-1.compute.amazonaws.com
           AWS_USERNAME: ec2-user
+          APP_TARGET: /home/ec2-user/app
         with:
-          host: "$AWS_HOST"
-          username: "$AWS_USERNAME"
+          host: ${{ env.AWS_HOST }}
+          username: ${{ env.AWS_USERNAME }}
           key: ${{ secrets.AWS_SSH_KEY }}
           source: "./swebapp"
-          target: /home/ec2-user/app
+          target: ${{ env.APP_TARGET }}
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
